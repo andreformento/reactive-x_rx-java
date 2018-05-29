@@ -1,4 +1,4 @@
-package com.formento.reactivex.reactivexexamples;
+package com.formento.reactivex.reactivexexamples.person;
 
 import java.beans.ConstructorProperties;
 import java.io.Serializable;
