@@ -17,12 +17,12 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.formento.reactivex'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = 10
+targetCompatibility = 10
 
 repositories {
 	mavenCentral()
 }
-
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-webflux')
