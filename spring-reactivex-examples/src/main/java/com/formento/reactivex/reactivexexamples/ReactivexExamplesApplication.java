@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ReactivexExamplesApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ReactivexExamplesApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(ReactivexExamplesApplication.class, args);
+    }
 }

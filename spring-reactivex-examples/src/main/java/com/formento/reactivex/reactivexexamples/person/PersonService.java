@@ -1,9 +1,10 @@
 package com.formento.reactivex.reactivexexamples.person;
 
-import org.springframework.stereotype.Service;
-import reactor.core.publisher.Mono;
-
 import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+
+import reactor.core.publisher.Mono;
 
 @Service
 public class PersonService {
@@ -18,7 +19,7 @@ public class PersonService {
         return repository.getPersonById(id);
     }
 
-    public Mono<UUID> create(final Mono<Person> person) {
+    public Mono<UUID> create(final Person person) {
         return repository.create(person);
     }
 

@@ -15,7 +15,7 @@ public class Person {
         this.age = age;
     }
 
-    public Person(final UUID id, final  Person  person) {
+    public Person(final UUID id, final Person person) {
         this.id = Optional.of(id);
         this.name = person.name;
         this.age = person.age;

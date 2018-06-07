@@ -1,13 +1,13 @@
 package com.formento.reactivex.reactivexexamples.person;
 
-import reactor.core.publisher.Mono;
-
 import java.util.UUID;
+
+import reactor.core.publisher.Mono;
 
 public interface PersonRepository {
 
     Mono<Person> getPersonById(final UUID id);
 
-    Mono<UUID> create(final Mono<Person> person);
+    Mono<UUID> create(final Person person);
 
 }

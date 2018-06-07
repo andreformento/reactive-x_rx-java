@@ -25,6 +25,7 @@ public class PersonExceptionHandler {
     public VndErrors notFoundException(final PersonNotFoundException e) {
         final String id = e.getId().toString();
         LOGGER.error("Person not found by id {}", id);
+        //https://lankydanblog.com/2017/09/12/global-exception-handling-with-controlleradvice/
         return new VndErrors("a", "b");
     }
 
