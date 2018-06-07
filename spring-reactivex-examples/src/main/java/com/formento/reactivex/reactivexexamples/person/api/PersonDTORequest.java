@@ -1,9 +1,9 @@
 package com.formento.reactivex.reactivexexamples.person.api;
 
-import com.formento.reactivex.reactivexexamples.person.Person;
-
 import java.beans.ConstructorProperties;
 import java.io.Serializable;
+
+import com.formento.reactivex.reactivexexamples.person.Person;
 
 class PersonDTORequest implements Serializable {
 

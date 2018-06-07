@@ -1,14 +1,17 @@
 package com.formento.reactivex.reactivexexamples.person.repository;
 
-import com.formento.reactivex.reactivexexamples.person.Person;
-import com.formento.reactivex.reactivexexamples.person.PersonRepository;
-import org.springframework.stereotype.Repository;
-import reactor.core.publisher.Mono;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+
+import org.springframework.stereotype.Repository;
+
+import com.formento.reactivex.reactivexexamples.person.Person;
+import com.formento.reactivex.reactivexexamples.person.PersonRepository;
+import com.formento.reactivex.reactivexexamples.person.infra.PersonNotFoundException;
+
+import reactor.core.publisher.Mono;
 
 @Repository
 public class MutablePersonRepository implements PersonRepository {
@@ -24,15 +27,23 @@ public class MutablePersonRepository implements PersonRepository {
         return Optional.
                 ofNullable(storage.get(id)).
                 map(Mono::just).
-                orElseGet(Mono::empty);
+                orElseThrow(() -> new PersonNotFoundException(id));
     }
 
     @Override
-    public Mono<UUID> create(final Mono<Person> person) {
-        return person.
+    public Mono<UUID> create(final Person person) {
+        return Mono.
+                just(person).
                 map(p -> new Person(UUID.randomUUID(), p)).
-                doOnSuccess(p -> storage.put(p.getId().orElseThrow(() -> new RuntimeException("Oh Lord!")), p)).
-                map(p -> p.getId().orElseThrow(() -> new RuntimeException("What there is not id???")));
+                doOnSuccess(p -> storage.put(
+                        p.getId().orElseThrow(() -> new RuntimeException("Oh Lord!")),
+                        p
+                        )
+                ).
+                map(p -> p.
+                        getId().
+                        orElseThrow(() -> new RuntimeException("What there is not id???"))
+                );
     }
 
 }

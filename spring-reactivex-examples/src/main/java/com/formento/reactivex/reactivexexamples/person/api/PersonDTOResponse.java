@@ -1,10 +1,9 @@
 package com.formento.reactivex.reactivexexamples.person.api;
 
-
-import com.formento.reactivex.reactivexexamples.person.Person;
-
 import java.io.Serializable;
 import java.util.UUID;
+
+import com.formento.reactivex.reactivexexamples.person.Person;
 
 class PersonDTOResponse implements Serializable {
 
