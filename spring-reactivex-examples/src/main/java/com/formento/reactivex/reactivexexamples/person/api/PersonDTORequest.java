@@ -9,15 +9,17 @@ class PersonDTORequest implements Serializable {
 
     private final String name;
     private final Integer age;
+    private final String sort;
 
-    @ConstructorProperties({"name", "age"})
-    PersonDTORequest(final String name, final Integer age) {
+    @ConstructorProperties({"name", "age", "sort"})
+    PersonDTORequest(final String name, final Integer age, String sort) {
         this.name = name;
         this.age = age;
+        this.sort = sort;
     }
 
     Person toModel() {
-        return new Person(name, age);
+        return new Person(name, age, sort);
     }
 
 }

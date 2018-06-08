@@ -16,7 +16,7 @@ public class MergeWith {
         }
     }
 
-    public static void main(String... args) {
+    public static void main(String... args) throws InterruptedException {
         Mono<Request> request = Mono.just(new Request("caneca", "preco"));
 
         System.out.println("Thread principal: " + Thread.currentThread().getId());
@@ -25,7 +25,7 @@ public class MergeWith {
                 .mergeWith(findByRelevancia(request))
                 .switchIfEmpty(whatever(request))
                 .subscribe(System.out::println);
-
+        Thread.sleep(1000);
     }
 
     private static Publisher<? extends String> whatever(final Mono<Request> request) {

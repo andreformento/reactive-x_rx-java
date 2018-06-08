@@ -42,9 +42,10 @@ class PersonController {
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
     public Mono<String> create(final @RequestBody Mono<PersonDTORequest> personRequest) {
-        return service.
-                create(personRequest.map(PersonDTORequest::toModel)).
-                map(UUID::toString);
+        return null;
+//        return service.
+//                search(personRequest.map(PersonDTORequest::toModel)).
+//                map(UUID::toString);
     }
 
 }
