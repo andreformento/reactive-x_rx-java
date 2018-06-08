@@ -31,9 +31,8 @@ public class MutablePersonRepository implements PersonRepository {
     }
 
     @Override
-    public Mono<UUID> create(final Person person) {
-        return Mono.
-                just(person).
+    public Mono<UUID> create(final Mono<Person> person) {
+        return person.
                 map(p -> new Person(UUID.randomUUID(), p)).
                 doOnSuccess(p -> storage.put(
                         p.getId().orElseThrow(() -> new RuntimeException("Oh Lord!")),

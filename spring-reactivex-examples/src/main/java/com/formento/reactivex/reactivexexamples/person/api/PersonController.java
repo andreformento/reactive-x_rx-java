@@ -17,6 +17,7 @@ import com.formento.reactivex.reactivexexamples.person.PersonService;
 
 import reactor.core.publisher.Mono;
 
+// https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-controller
 @RestController
 @RequestMapping("/people")
 class PersonController {
@@ -40,9 +41,9 @@ class PersonController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public Mono<String> create(final @RequestBody PersonDTORequest personRequest) {
+    public Mono<String> create(final @RequestBody Mono<PersonDTORequest> personRequest) {
         return service.
-                create(personRequest.toModel()).
+                create(personRequest.map(PersonDTORequest::toModel)).
                 map(UUID::toString);
     }
 

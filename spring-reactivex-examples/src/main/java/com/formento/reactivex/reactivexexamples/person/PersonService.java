@@ -19,7 +19,7 @@ public class PersonService {
         return repository.getPersonById(id);
     }
 
-    public Mono<UUID> create(final Person person) {
+    public Mono<UUID> create(final Mono<Person> person) {
         return repository.create(person);
     }
 

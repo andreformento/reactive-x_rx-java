@@ -8,6 +8,6 @@ public interface PersonRepository {
 
     Mono<Person> getPersonById(final UUID id);
 
-    Mono<UUID> create(final Person person);
+    Mono<UUID> create(final Mono<Person> person);
 
 }
