@@ -11,9 +11,9 @@
 ```shell
 curl -X POST -H "Content-Type: application/json"\
      -d '{"name": "Formento", "age": 27}' \
-     "localhost:9778/people"
+     "localhost:8080/people"
 ```
-- Get a person `curl -X GET "localhost:9778/people/uuid123"`
+- Get a person `curl -X GET "localhost:8080/people/uuid123"`
 
 ## References
 
